@@ -12,9 +12,9 @@ class CustomTextField extends StatelessWidget {
       controller: controller,
       decoration: InputDecoration(
           hintText: hintText,
-          border:
-              OutlineInputBorder(borderSide: BorderSide(color: Colors.black38)),
-          enabledBorder: OutlineInputBorder(
+          border: const OutlineInputBorder(
+              borderSide: BorderSide(color: Colors.black38)),
+          enabledBorder: const OutlineInputBorder(
               borderSide: BorderSide(color: Colors.black38))),
       validator: (value) {
         if (value == null || value.isEmpty) {
