@@ -1,5 +1,26 @@
+import 'dart:io';
+
+import 'package:file_picker/file_picker.dart';
 import 'package:flutter/material.dart';
 
 void showSnackbar(BuildContext context, String text) {
   ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text(text)));
+}
+
+Future<List<File>> pickImage() async {
+  List<File> images = [];
+  try {
+    var files = await FilePicker.platform.pickFiles(
+      // type: FileType.,
+      allowMultiple: true,
+    );
+    if (files != null && files.files.isNotEmpty) {
+      for (var f in files.files) {
+        images.add(File(f.path!));
+      }
+    }
+  } catch (e) {
+    debugPrint(e.toString());
+  }
+  return images;
 }
