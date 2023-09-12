@@ -1,3 +1,4 @@
+import 'dart:convert';
 import 'dart:io';
 
 import 'package:amazon_clone/constants/error_handling.dart';
@@ -50,8 +51,60 @@ class AdminService {
           context: context,
           success: () {
             showSnackbar(context, 'Product Add Successfully');
+            
+
             Navigator.pop(context);
           });
+    } catch (e) {
+      showSnackbar(context, e.toString());
+    }
+  }
+
+  Future<List<Product>> getProducts({required BuildContext context}) async {
+    final token = Provider.of<UserProvider>(context, listen: false).user.token;
+    List<Product> productList = [];
+    try {
+      http.Response res = await http.get(
+          Uri.parse(
+            '$uri/admin/get-products',
+          ),
+          headers: {
+            'Content-Type': 'application/json; charset=UTF-8',
+            'x-auth-token': token
+          });
+      httpErrorHandle(
+          response: res,
+          context: context,
+          success: () {
+            for (var p in jsonDecode(res.body)) {
+              productList.add(Product.fromJson(jsonEncode(p)));
+            }
+          });
+    } catch (e) {
+      showSnackbar(context, e.toString());
+    }
+    return productList;
+  }
+
+  void deleteProduct(
+      {required BuildContext context,
+      required Product product,
+      required VoidCallback onsuccess}) async {
+    final token = Provider.of<UserProvider>(context, listen: false).user.token;
+
+    try {
+      http.Response res = await http.post(
+          Uri.parse('$uri/admin/delete-product'),
+          headers: {
+            'Content-Type': 'application/json; charset=UTF-8',
+            'x-auth-token': token
+          },
+          body: jsonEncode({
+            '_id': product.id,
+          }));
+      print(res.body);
+
+      httpErrorHandle(response: res, context: context, success: onsuccess);
     } catch (e) {
       showSnackbar(context, e.toString());
     }

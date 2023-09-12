@@ -5,8 +5,8 @@ import 'dart:core';
 class Product {
   final String name;
   final String description;
-  final double price;
-  final double quantity;
+  final num price;
+  final num quantity;
   final String category;
   final List<String> images;
   final String? id;
@@ -35,13 +35,13 @@ class Product {
 
   factory Product.fromMap(Map<String, dynamic> map) {
     return Product(
-      name: map['name'] as String,
-      description: map['description'] as String,
-      price: map['price'] as double,
-      quantity: map['quantity'] as double,
-      category: map['category'] as String,
-      images: List<String>.from((map['images'] as List<String>)),
-      id: map['_id'] != null ? map['_id'] as String : null,
+      name: map['name'],
+      description: map['description'],
+      price: map['price'],
+      quantity: map['quantity'],
+      category: map['category'],
+      images: List<String>.from((map['images'])),
+      id: map['_id'] != null ? map['_id'] ?? '' : null,
     );
   }
 
