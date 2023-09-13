@@ -26,7 +26,8 @@ class AuthService {
           password: password,
           address: '',
           token: '',
-          type: '');
+          type: '',
+          cart: []);
 
       http.Response res = await http.post(Uri.parse("$uri/api/signup"),
           body: user.toJson(),
@@ -58,7 +59,8 @@ class AuthService {
           password: password,
           address: '',
           token: '',
-          type: '');
+          type: '',
+          cart: []);
 
       http.Response res = await http.post(Uri.parse("$uri/api/signin"),
           body: user.toJson(),
