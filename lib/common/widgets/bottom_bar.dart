@@ -56,7 +56,7 @@ class _BottomBarState extends State<BottomBar> {
                             color: _page == 0
                                 ? GlobalVariables.selectedNavBarColor
                                 : GlobalVariables.backgroundColor))),
-                child: const Icon(Icons.home),
+                child: const Icon(Icons.home_outlined),
               )),
           BottomNavigationBarItem(
               label: '',
@@ -86,7 +86,7 @@ class _BottomBarState extends State<BottomBar> {
                     badgeStyle:
                         const badge.BadgeStyle(badgeColor: Colors.white),
                     badgeContent: Text('$userCartLength'),
-                    child: const Icon(Icons.shopping_cart_checkout_outlined)),
+                    child: const Icon(Icons.shopping_cart_outlined)),
               )),
         ],
       ),

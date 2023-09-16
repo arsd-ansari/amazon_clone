@@ -5,7 +5,7 @@ const productRoute = require("./routes/product")
 const mongoose = require("mongoose");
 const userRoute = require("./routes/user");
 
-const PORT = 3000;
+const PORT = process.env.PORT || 3000;
 const DB = "mongodb+srv://arsdansari291:43ngrcWf3kYIV7RN@cluster0.ymujl0e.mongodb.net/?retryWrites=true&w=majority"
 
 const app = express();

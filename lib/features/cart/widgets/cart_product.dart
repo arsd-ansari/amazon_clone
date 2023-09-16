@@ -40,7 +40,7 @@ class _CartProductState extends State<CartProduct> {
                 product.images[0],
                 fit: BoxFit.contain,
                 height: 135,
-                width: 135,
+                // width: 135,
               ),
               Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
@@ -55,7 +55,7 @@ class _CartProductState extends State<CartProduct> {
                     ),
                   ),
                   Container(
-                    width: 235,
+                    // width: 235,
                     padding: const EdgeInsets.only(left: 10, top: 5),
                     child: Text(
                       '\$${product.price}',
@@ -64,14 +64,14 @@ class _CartProductState extends State<CartProduct> {
                     ),
                   ),
                   Container(
-                    width: 235,
+                    // width: 235,
                     padding: const EdgeInsets.only(left: 10, top: 5),
                     child: const Text(
                       'Eligible For Free Shopping',
                     ),
                   ),
                   Container(
-                    width: 235,
+                    // width: 235,
                     padding: const EdgeInsets.only(left: 10, top: 5),
                     child: const Text(
                       'In Stock',

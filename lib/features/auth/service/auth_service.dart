@@ -67,7 +67,6 @@ class AuthService {
           headers: <String, String>{
             'Content-Type': 'application/json; charset=UTF-8'
           });
-      print("called${jsonEncode(res.body)}");
 
       httpErrorHandle(
           response: res,

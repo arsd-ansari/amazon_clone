@@ -11,7 +11,7 @@ import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'package:provider/provider.dart';
 
 class ProductDetailsScreen extends StatefulWidget {
-  static const routeName = '/product-detail';
+  static const String routeName = '/product-detail';
   final Product product;
   const ProductDetailsScreen({super.key, required this.product});
 
